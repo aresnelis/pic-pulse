@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   has_many :likers, through: :likes, source: :user
 
   validates :images, presence: true, blob: { content_type: :image }
+  has_many :comments
 end
