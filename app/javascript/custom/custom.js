@@ -1,7 +1,14 @@
 import * as FilePond from 'filepond';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-   // Register the plugin
-      FilePond.registerPlugin(FilePondPluginImagePreview);
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+
+document.addEventListener("turbo:load", loadFilePond);
+  function loadFilePond() {
+// Register the plugins
+      FilePond.registerPlugin(
+        FilePondPluginImagePreview,
+        FilePondPluginFileValidateType
+        );
    // Get a reference to the file input element
     const inputElement = document.querySelector("#post-images");
 
@@ -10,5 +17,7 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
       credits: {},
       storeAsFile: true,
       allowMultiple: true,
-      allowReorder: true
+      allowReorder: true,
+      acceptedFileTypes: ['image/*'],
     } );
+  };
