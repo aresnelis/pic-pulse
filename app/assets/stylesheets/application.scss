@@ -14,5 +14,7 @@
  *= require_self
  */
 @import 'bootstrap';
-@import 'login';
+@import 'custom';
 @import "font-awesome";
+@import "filepond";
+@import "filepond-plugin-image-preview.scss";
