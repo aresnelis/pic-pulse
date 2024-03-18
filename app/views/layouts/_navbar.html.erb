@@ -23,9 +23,9 @@
         <div class="dropdown">
           <a class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if current_user && current_user.profile_picture.attached? %>
-              <%= image_tag current_user.profile_picture, class: " img-thumbnail rounded-circle", style: " width: 2rem" %>
+              <%= image_tag current_user.profile_picture, class: "rounded-circle", style: "width: 3rem; height: 3rem;" %>
             <% else %>
-              <%= image_tag "default_avatar.png", class: " img-thumbnail rounded-circle", style: " width: 2rem" %>
+              <%= image_tag "default_avatar.png", class: "rounded-circle", style: " width: 3rem; height: 3rem;" %>
             <% end %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

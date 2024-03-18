@@ -1,11 +1,15 @@
 <div class="d-flex justify-content-between">
   <div class="d-flex">
-    <%= image_tag 'default_avatar.png', class: " img-thumbnail rounded-circle", style: " width: 2.5rem" %>
+    <% if liker.profile_picture.attached? %>
+      <%= image_tag liker.profile_picture, class: "rounded-circle", style: "width:3rem; height:3rem;" %>
+    <% else %>
+      <%= image_tag "default_avatar.png", class: "rounded-circle", style: "width:3rem; height:3rem;" %>
+    <% end %>
     <div class="d-flex flex-column mx-2 justify-content-center">
       <small class="fw-bold" style="overflow:hidden; white-space: nowrap; text-overflow: ellipsis;max-width:10rem"><%= liker.username %></small>
     </div>
   </div>
-  <%= link_to root_path, style: "text-decoration:none;", class: "btn btn-primary" do %>
+  <%= link_to root_path, style: "text-decoration:none;height: 10%;", class: "btn btn-primary" do %>
     <small class="fw-bold text-white">Follow</small>
   <% end %>
 </div>
