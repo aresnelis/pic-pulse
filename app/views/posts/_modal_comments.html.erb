@@ -2,7 +2,11 @@
   <div id="post<%=comment.post_id%>ModalComment<%=comment.id%>">
     <div class="d-flex justify-content-between">
       <div class="d-flex">
-        <%= image_tag 'default_avatar.png', class: " img-thumbnail rounded-circle", style: "width: 2.5rem; max-height:2.5rem" %>
+        <% if comment.user.profile_picture.attached? %>
+          <%= image_tag comment.user.profile_picture, class: "rounded-circle", style: "width:3rem; height:3rem;" %>
+        <% else %>
+          <%= image_tag "default_avatar.png", class: "rounded-circle", style: "width:3rem; height:3rem;" %>
+        <% end %>
         <div class="d-flex flex-column mx-2 justify-content-center">
           <small class="fw-bold" style="overflow:hidden; white-space: nowrap; text-overflow: ellipsis;max-width:10rem"><%= comment.user.username %></small>
           <p class="card-text m-0"><%= comment.body %></p>
