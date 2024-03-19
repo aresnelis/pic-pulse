@@ -6,24 +6,23 @@
     </a>
   <% end %>
   <% post.comments.last(5).each do |comment| %>
-    <p class="card-text m-0"><span class="fw-bold me-2"><%= comment.user.username %></span><%= comment.body %></p>
+    <p class="card-text m-0"><%= link_to comment.user, class: "a-decoration-none", data: {turbo_frame: "_top"} do %><span class="fw-bold me-2"><%= comment.user.username %></span><% end %><%= comment.body %></p>
   <% end %>
 <% end %>
-
-<div class="modal fade" id="post<%= post.id %>_commentsModal" tabindex="-1" aria-labelledby="post<%= post.id %>_commentsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="post<%= post.id %>_commentsModalLabel">Post Comments</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="d-flex flex-column gap-3">
-          <% post.comments.each do |comment| %>
-            <%= render "posts/modal_comments", comment: comment %>
-          <% end %>
+  <div class="modal fade" id="post<%= post.id %>_commentsModal" tabindex="-1" aria-labelledby="post<%= post.id %>_commentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="post<%= post.id %>_commentsModalLabel">Post Comments</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex flex-column gap-3">
+            <% post.comments.each do |comment| %>
+              <%= render "posts/modal_comments", comment: comment %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
