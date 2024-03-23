@@ -18,14 +18,17 @@
         <% end %>
       </div>
       <div>
-        <div class="dropdown">
-          <a class="text-dark fs-4" style="text-decoration:none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            ...
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><%= button_to 'Delete Post', post, method: :delete, class:"dropdown-item"%></li>
-          </ul>
-        </div>
+        <% if current_user == post.user %>
+          <div class="dropdown">
+            <a class="text-dark fs-4" style="text-decoration:none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              ...
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><%= button_to 'Delete Post', post, method: :delete, class:"dropdown-item"%></li>
+            </ul>
+          </div>
+        <% else %>
+        <% end %>
       </div>
     </div>
   </div>
