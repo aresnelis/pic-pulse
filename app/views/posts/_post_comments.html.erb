@@ -6,7 +6,7 @@
     </a>
   <% end %>
   <% post.comments.last(5).each do |comment| %>
-    <p class="card-text m-0"><%= link_to comment.user, class: "a-decoration-none", data: {turbo_frame: "_top"} do %><span class="fw-bold me-2"><%= comment.user.username %></span><% end %><%= comment.body %></p>
+    <p class="card-text m-0"><%= link_to comment.user, class: "a-decoration-none", data: {turbo: false} do %><span class="fw-bold me-2"><%= comment.user.username %></span><% end %><%= comment.body %></p>
   <% end %>
 <% end %>
   <div class="modal fade" id="post<%= post.id %>_commentsModal" tabindex="-1" aria-labelledby="post<%= post.id %>_commentsModalLabel" aria-hidden="true">

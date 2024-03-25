@@ -65,7 +65,7 @@
     <%= form_with url: comments_path, method: :post, data: {controller: "comment", action: "turbo:submit-end->comment#clear"} do |f| %>
       <div class="card-footer d-flex justify-content-between bg-white">
         <%= f.hidden_field :post_id, value: post.id %>
-        <%= f.text_area :comment_body, class: "w-75", placeholder: "Add a comment...", style: "border:none" %>
+        <%= f.text_field :comment_body, class: "w-75", placeholder: "Add a comment...", style: "border:none" %>
         <%= f.submit "Post", class: "text-primary fw-bold", style: "background:none; border:none;" %>
       </div>
     <% end %>
