@@ -6,10 +6,8 @@
       <%= image_tag "default_avatar.png", class: "rounded-circle", style: "width:3rem; height:3rem;" %>
     <% end %>
     <div class="d-flex flex-column mx-2 justify-content-center">
-      <small class="fw-bold" style="overflow:hidden; white-space: nowrap; text-overflow: ellipsis;max-width:10rem"><%= link_to liker, class: "a-decoration-none", data: {turbo_frame: "_top"} do %><%= liker.username %><% end %></small>
+      <small class="fw-bold" style="overflow:hidden; white-space: nowrap; text-overflow: ellipsis;max-width:10rem"><%= link_to liker, class: "a-decoration-none", data: {turbo: false} do %><%= liker.username %><% end %></small>
     </div>
   </div>
-  <%= link_to root_path, style: "text-decoration:none;height: 10%;", class: "btn btn-primary" do %>
-    <small class="fw-bold text-white">Follow</small>
-  <% end %>
+  <%= render 'layouts/shared/followed_state', user: liker %>
 </div>
